@@ -4,7 +4,8 @@ import { StyleSheet, Text, View } from 'react-native';
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+      <Text>Hello Word!</Text>
+      <View style={styles.box} />
     </View>
   );
 }
@@ -16,4 +17,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  box: {
+    backgroundColor: '#000',
+    width: 60,
+    height: 60,
+  }
 });

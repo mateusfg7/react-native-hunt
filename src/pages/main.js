@@ -6,7 +6,7 @@ import { View, Text, FlatList, TouchableOpacity, StyleSheet } from 'react-native
 
 function Main() {
 
-    const [documents, setDocuments] = useState({
+    const [state, setState] = useState({
         docs: [],
     })
 
@@ -14,7 +14,7 @@ function Main() {
         async function fetchData() {
             const response = await api.get('/products')
             const { docs } = response.data
-            setDocuments({ docs })
+            setState({ docs })
         }
         fetchData()
     }, [])
@@ -36,7 +36,7 @@ function Main() {
         <View style={styles.container}>
             <FlatList
                 contentContainerStyle={styles.list} 
-                data={documents.docs}
+                data={state.docs}
                 keyExtractor={item => item._id}
                 renderItem={item => renderItem(item)}
             />

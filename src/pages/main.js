@@ -7,14 +7,16 @@ import { View, Text, FlatList, TouchableOpacity, StyleSheet } from 'react-native
 function Main() {
 
     const [state, setState] = useState({
+        productInfo: {},
         docs: [],
+        page: 1,
     })
 
     useEffect(()=>{
-        async function fetchData() {
-            const response = await api.get('/products')
-            const { docs } = response.data
-            setState({ docs })
+        async function fetchData(page = 1) {
+            const response = await api.get(`/products?page=${page}`)
+            const { docs, ...productInfo } = response.data
+            setState({ docs, productInfo })
         }
         fetchData()
     }, [])

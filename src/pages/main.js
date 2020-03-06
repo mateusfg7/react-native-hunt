@@ -6,22 +6,25 @@ import { View, Text } from 'react-native'
 
 function Main() {
 
-    const [couter, setCouter] = useState({
-        couter: 0
+    const [documents, setDocuments] = useState({
+        docs: [],
     })
 
     useEffect(()=>{
         async function fetchData() {
             const response = await api.get('/products')
             const { docs } = response.data
-            setCouter({ couter: docs.length })
+            setDocuments({ docs })
         }
         fetchData()
     }, [])
 
     return (
         <View>
-            <Text>Página Main: {couter.couter}</Text>
+            <Text>Página Main</Text>
+            {documents.docs.map(product => (
+                <Text key={product._id}>{product.title}</Text>
+            ))}
         </View>
     )
 }

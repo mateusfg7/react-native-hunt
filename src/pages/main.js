@@ -19,12 +19,21 @@ function Main() {
         fetchData()
     }, [])
 
+    const renderItem = ({ item }) => {
+        return (
+            <View>
+                <Text>{item.title}</Text>
+                <Text>{item.description}</Text>
+            </View>
+        )
+    }
+
     return (
         <View>
             <FlatList 
                 data={documents.docs}
                 keyExtractor={item => item._id}
-                //renderItem={renderItem()}
+                renderItem={item => renderItem(item)}
             />
         </View>
     )

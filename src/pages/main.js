@@ -21,20 +21,21 @@ function Main() {
 
     const renderItem = ({ item }) => {
         return (
-            <View>
-                <Text>{item.title}</Text>
-                <Text>{item.description}</Text>
+            <View style={styles.productContainer}>
+                <Text style={styles.productTitle}>{item.title}</Text>
+                <Text style={styles.productDescription}>{item.description}</Text>
 
-                <TouchableOpacity onPress={() => {}} >
-                    <Text>Acessar</Text>
+                <TouchableOpacity style={styles.productButton} onPress={() => {}} >
+                    <Text style={styles.productButtonText}>Acessar</Text>
                 </TouchableOpacity>
             </View>
         )
     }
 
     return (
-        <View>
-            <FlatList 
+        <View style={styles.container}>
+            <FlatList
+                contentContainerStyle={StyleSheet.list} 
                 data={documents.docs}
                 keyExtractor={item => item._id}
                 renderItem={item => renderItem(item)}

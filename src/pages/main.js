@@ -10,7 +10,7 @@ function Main() {
     )
 }
 Main.navigationOptions = {
-    title: 'JSHUnt',
+    title: 'JSHunt',
 }
 
 export default Main

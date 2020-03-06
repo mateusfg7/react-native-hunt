@@ -15,7 +15,11 @@ function Main() {
     async function loadProducts(page = 1) {
         const response = await api.get(`/products?page=${page}`)
         const { docs, ...productInfo } = response.data
-        setState({ docs, productInfo })
+        setState({
+            docs: [...state.docs, ...docs],
+            productInfo,
+            page
+        })
     }
 
     useEffect(()=>{

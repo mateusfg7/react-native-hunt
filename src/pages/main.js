@@ -5,7 +5,12 @@ import { View, Text } from 'react-native'
 
 function Main() {
 
-    useEffect(()=>{}, [])
+    useEffect(async ()=>{
+        const response = await api.get('/products')
+
+        const { docs } = response.data
+        console.log(docs)
+    }, [])
 
     return (
         <View>

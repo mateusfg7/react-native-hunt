@@ -12,17 +12,24 @@ function Main() {
         page: 1,
     })
 
-    async function fetchData(page = 1) {
+    async function loadProducts(page = 1) {
         const response = await api.get(`/products?page=${page}`)
         const { docs, ...productInfo } = response.data
         setState({ docs, productInfo })
     }
 
     useEffect(()=>{
-        fetchData()
+        loadProducts()
     }, [])
 
-    const loadMore = () => {}
+    const loadMore = () => {
+        const { page, productInfo } = state
+
+        if (page === productInfo.pages) return
+
+        const pageNumber = page + 1;
+        loadProducts(pageNumber)
+    }
 
     const renderItem = ({ item }) => {
         return (

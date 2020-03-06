@@ -44,7 +44,7 @@ function Main({navigation}) {
                 <TouchableOpacity
                     style={styles.productButton}
                     onPress={() => {
-                        navigation.navigate('Product')
+                        navigation.navigate('Product', { product: item })
                     }}
                 >
                     <Text style={styles.productButtonText}>Acessar</Text>

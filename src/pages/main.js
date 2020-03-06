@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 
 import api from '../services/api'
 
-import { View, Text } from 'react-native'
+import { View, Text, FlatList } from 'react-native'
 
 function Main() {
 

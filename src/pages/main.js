@@ -4,7 +4,7 @@ import api from '../services/api'
 
 import { View, Text, FlatList, TouchableOpacity, StyleSheet } from 'react-native'
 
-function Main({navigation}) {
+function Main({ navigation }) {
 
     const [state, setState] = useState({
         productInfo: {},
@@ -28,11 +28,14 @@ function Main({navigation}) {
 
     const loadMore = () => {
         const { page, productInfo } = state
-
-        if (page === productInfo.pages) return
-
-        const pageNumber = page + 1;
-        loadProducts(pageNumber)
+        
+        if (page === productInfo.pages) {
+            return
+        }
+        else {
+            const pageNumber = page + 1;
+            loadProducts(pageNumber)
+        }
     }
 
     const renderItem = ({ item }) => {

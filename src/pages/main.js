@@ -12,12 +12,13 @@ function Main() {
         page: 1,
     })
 
+    async function fetchData(page = 1) {
+        const response = await api.get(`/products?page=${page}`)
+        const { docs, ...productInfo } = response.data
+        setState({ docs, productInfo })
+    }
+
     useEffect(()=>{
-        async function fetchData(page = 1) {
-            const response = await api.get(`/products?page=${page}`)
-            const { docs, ...productInfo } = response.data
-            setState({ docs, productInfo })
-        }
         fetchData()
     }, [])
 

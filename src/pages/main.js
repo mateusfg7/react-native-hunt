@@ -21,10 +21,11 @@ function Main() {
 
     return (
         <View>
-            <Text>Página Main</Text>
-            {documents.docs.map(product => (
-                <Text key={product._id}>{product.title}</Text>
-            ))}
+            <FlatList 
+                data={documents.docs}
+                keyExtractor={item => item._id}
+                //renderItem={renderItem()}
+            />
         </View>
     )
 }

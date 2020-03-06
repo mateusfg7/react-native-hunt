@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 
 import api from '../services/api'
 
-import { View, Text, FlatList } from 'react-native'
+import { View, Text, FlatList, TouchableOpacity } from 'react-native'
 
 function Main() {
 
@@ -24,6 +24,10 @@ function Main() {
             <View>
                 <Text>{item.title}</Text>
                 <Text>{item.description}</Text>
+
+                <TouchableOpacity onPress={() => {}} >
+                    <Text>Acessar</Text>
+                </TouchableOpacity>
             </View>
         )
     }

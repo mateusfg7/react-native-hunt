@@ -6,16 +6,22 @@ import { View, Text } from 'react-native'
 
 function Main() {
 
-    useEffect(async ()=>{
-        const response = await api.get('/products')
+    const [couter, setCouter] = useState({
+        couter: 0
+    })
 
-        const { docs } = response.data
-        console.log(docs)
+    useEffect(()=>{
+        async function fetchData() {
+            const response = await api.get('/products')
+            const { docs } = response.data
+            setCouter({ couter: docs.length })
+        }
+        fetchData()
     }, [])
 
     return (
         <View>
-            <Text>Página Main</Text>
+            <Text>Página Main: {couter.couter}</Text>
         </View>
     )
 }

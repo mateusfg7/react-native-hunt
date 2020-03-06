@@ -21,6 +21,8 @@ function Main() {
         fetchData()
     }, [])
 
+    const loadMore = () => {}
+
     const renderItem = ({ item }) => {
         return (
             <View style={styles.productContainer}>
@@ -41,6 +43,8 @@ function Main() {
                 data={state.docs}
                 keyExtractor={item => item._id}
                 renderItem={item => renderItem(item)}
+                onEndReached={loadMore()}
+                onEndReachedThreshold={0.1}
             />
         </View>
     )
